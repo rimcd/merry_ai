@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>혜다설 인 교토 - 2박 3일 플래너</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-soft: #ffe6ee;
+            --pink-main: #ff9fb8;
+            --coral: #ff7b8a;
+            --cream: #fff9f4;
+            --charcoal: #222222;
+            --jade: #00a86b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Crimson Text', serif;
+            background: radial-gradient(circle at top, #fff5f8 0%, #ffe8f0 40%, #fffaf7 100%);
+            color: var(--charcoal);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 16px;
+            font-size: 15px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 18px 32px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 35px rgba(255, 155, 176, 0.25);
+            border: 1px solid rgba(255, 159, 184, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(255, 159, 184, 0.16), transparent 60%),
+                        radial-gradient(circle at bottom right, rgba(255, 210, 220, 0.18), transparent 55%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--coral);
+            margin-bottom: 10px;
+            letter-spacing: -0.03em;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .hotel-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ffeef3 0%, #ffe0eb 100%);
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 159, 184, 0.65);
+        }
+
+        .hotel-info span.icon {
+            font-size: 1.2rem;
+        }
+
+        /* Sakura falling background */
+        .sakura-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .petal {
+            position: absolute;
+            width: 12px;
+            height: 18px;
+            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #ffe1ec 40%, #ffb8ce 100%);
+            border-radius: 70% 40% 60% 40%;
+            opacity: 0.8;
+            animation: sakura-fall 14s linear infinite, sakura-sway 4s ease-in-out infinite;
+            filter: drop-shadow(0 2px 3px rgba(255, 140, 160, 0.35));
+        }
+
+        @keyframes sakura-fall {
+            0% {
+                transform: translate3d(0, -10%, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate3d(0, 110vh, 0) rotate(260deg);
+            }
+        }
+
+        @keyframes sakura-sway {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(18px);
+            }
+        }
+
+        .petal:nth-child(1) { left: 5%;  animation-duration: 15s; animation-delay: 0s; }
+        .petal:nth-child(2) { left: 18%; animation-duration: 18s; animation-delay: -4s; }
+        .petal:nth-child(3) { left: 32%; animation-duration: 16s; animation-delay: -2s; }
+        .petal:nth-child(4) { left: 48%; animation-duration: 20s; animation-delay: -8s; }
+        .petal:nth-child(5) { left: 60%; animation-duration: 17s; animation-delay: -3s; }
+        .petal:nth-child(6) { left: 72%; animation-duration: 19s; animation-delay: -6s; }
+        .petal:nth-child(7) { left: 84%; animation-duration: 16s; animation-delay: -10s; }
+        .petal:nth-child(8) { left: 27%; animation-duration: 21s; animation-delay: -12s; }
+        .petal:nth-child(9) { left: 53%; animation-duration: 18s; animation-delay: -5s; }
+        .petal:nth-child(10){ left: 91%; animation-duration: 22s; animation-delay: -9s; }
+
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 4px 2px;
+        }
+
+        .nav-button {
+            white-space: nowrap;
+            background: #ffffff;
+            border: 1px solid rgba(255, 159, 184, 0.7);
+            padding: 10px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            flex-shrink: 0;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(255, 155, 176, 0.25);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, var(--coral), var(--pink-main));
+            color: #fff;
+            border-color: transparent;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeSlideIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Time Sections */
+        .time-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 20px 16px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 196, 209, 0.6);
+        }
+
+        .time-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 196, 209, 0.8);
+        }
+
+        .time-icon {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .time-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--coral);
+        }
+
+        /* Options Grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .option-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
+            border: 1.5px solid rgba(255, 182, 200, 0.9);
+            border-radius: 18px;
+            padding: 16px 14px 14px;
+            cursor: pointer;
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 200, 215, 0.2) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.28s ease;
+        }
+
+        .option-card:hover::before {
+            opacity: 1;
+        }
+
+        .option-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(255, 155, 176, 0.28);
+            border-color: var(--coral);
+        }
+
+        .option-card.selected {
+            border-color: var(--coral);
+            border-width: 2px;
+            background: linear-gradient(135deg, #ffe8f0 0%, #fff5f8 100%);
+            box-shadow: 0 10px 30px rgba(255, 140, 170, 0.35);
+        }
+
+        .option-badge {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--coral), var(--pink-main));
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            font-family: 'Noto Sans KR', sans-serif;
+            box-shadow: 0 3px 9px rgba(255, 140, 170, 0.4);
+        }
+
+        .check-icon {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5rem;
+            color: var(--coral);
+            z-index: 5;
+        }
+
+        .option-card.selected .check-icon {
+            display: block;
+            animation: checkPop 0.38s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes checkPop {
+            0% { transform: scale(0) rotate(-160deg); }
+            100% { transform: scale(1) rotate(0); }
+        }
+
+        .option-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+            line-height: 1.3;
+            padding-right: 70px;
+        }
+
+        .option-type {
+            display: inline-block;
+            background: var(--pink-main);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            margin-bottom: 8px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 600;
+        }
+
+        .option-description {
+            color: #444;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 0.88rem;
+        }
+
+        .option-details {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 9px 9px 8px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 4px 0;
+            font-size: 0.8rem;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .detail-icon {
+            font-size: 1rem;
+        }
+
+        .hours-badge {
+            display: inline-block;
+            background: var(--jade);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: var(--coral);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .source-link {
+            display: inline-block;
+            color: var(--coral);
+            text-decoration: none;
+            font-size: 0.78rem;
+            margin-top: 4px;
+            font-weight: 600;
+            border-bottom: 1px dotted var(--coral);
+            transition: all 0.2s ease;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .source-link:hover {
+            color: var(--charcoal);
+            border-bottom-style: solid;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #e8f5ff 0%, #f3f7ff 100%);
+            border-left: 4px solid #66a3ff;
+            padding: 14px 14px 14px 18px;
+            border-radius: 14px;
+            margin: 0 0 16px;
+            font-size: 0.9rem;
+        }
+
+        .info-box strong {
+            color: #3a7adf;
+            font-weight: 700;
+        }
+
+        /* Onsen box */
+        .onsen-box {
+            margin-top: 10px;
+            background: radial-gradient(circle at top left, #ffeef3 0%, #ffe0eb 40%, #fff9f6 100%);
+            border-radius: 18px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 159, 184, 0.7);
+            box-shadow: 0 6px 20px rgba(255, 155, 176, 0.3);
+        }
+
+        .onsen-emoji {
+            font-size: 1.7rem;
+        }
+
+        .onsen-text strong {
+            font-weight: 700;
+            color: var(--coral);
+        }
+
+        /* Summary Page */
+        #summary-page {
+            display: none;
+        }
+
+        #summary-page.active {
+            display: block;
+        }
+
+        .summary-section {
+            background: white;
+            border-radius: 20px;
+            padding: 22px 16px 26px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.05);
+        }
+
+        .summary-day {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed rgba(255, 182, 200, 0.8);
+        }
+
+        .summary-day:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .summary-title-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--coral);
+            margin-bottom: 18px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .summary-day-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--coral);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .summary-time {
+            margin-bottom: 10px;
+        }
+
+        .summary-time-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .summary-item {
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe8ee 100%);
+            padding: 10px 12px;
+            border-radius: 12px;
+            margin-bottom: 6px;
+            border-left: 3px solid var(--coral);
+            font-size: 0.9rem;
+        }
+
+        .summary-item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+
+        .print-button {
+            background: linear-gradient(135deg, var(--coral), var(--pink-main));
+            color: white;
+            border: none;
+            padding: 11px 26px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 7px 20px rgba(255, 140, 170, 0.45);
+            transition: all 0.25s ease;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin-top: 8px;
+        }
+
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(255, 140, 170, 0.55);
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 40px 12px;
+            color: #999;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            header {
+                padding: 28px 14px 24px;
+                border-radius: 20px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .time-section {
+                padding: 16px 12px 14px;
+            }
+
+            .time-title {
+                font-size: 1.05rem;
+            }
+
+            .option-title {
+                font-size: 1rem;
+                padding-right: 60px;
+            }
+
+            .option-card {
+                padding: 14px 12px 12px;
+            }
+
+            .summary-section {
+                padding: 18px 12px 22px;
+            }
+
+            .summary-title-main {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            header, .main-nav, .print-button, .source-link, .sakura-container {
+                display: none !important;
+            }
+
+            .container {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .summary-section {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sakura background -->
+    <div class="sakura-container" aria-hidden="true">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>혜다설 인 교토</h1>
+            <p class="subtitle">삼자매의 특별한 2박 3일 플래너</p>
+            <div class="hotel-info">
+                <span class="icon">📍</span>
+                <span>호텔앤룸스 교토 시치조 · 교토역 도보 약 7분</span>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <div class="main-nav">
+            <button class="nav-button active" onclick="showPage(this, 'day1')">Day 1 토요일</button>
+            <button class="nav-button" onclick="showPage(this, 'day2')">Day 2 일요일</button>
+            <button class="nav-button" onclick="showPage(this, 'day3')">Day 3 월요일</button>
+            <button class="nav-button" onclick="showPage(this, 'summary')" style="background: linear-gradient(135deg, #ffeef3, #ffe0eb); border-color: transparent;">📋 나의 일정표</button>
+        </div>
+
+        <!-- Day 1 Content -->
+        <div id="day1" class="tab-content active">
+            <div class="info-box">
+                <strong>✈️ 오사카 → 교토 & 체크인 전 짐 맡기기</strong><br />
+                JR 또는 한큐선으로 교토역(약 30–50분) 이동 후, <b>호텔앤룸스 교토 시치조</b>에 짐 먼저 맡기고 점심 먹으러 출발!
+            </div>
+
+            <!-- 오전: 점심 & 교토역 주변 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">☀️</span>
+                    <h2 class="time-title">오전 & 점심 (짐 맡기고 교토역 주변)</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 1</div>
+                        <h3 class="option-title">교토역 라멘 코지</h3>
+                        <span class="option-type">라멘 거리 · 간편</span>
+                        <p class="option-description">
+                            교토역 10층에 있는 라멘 테마 거리. 여러 지역 라멘을 한 번에 모아둔 공간이라
+                            도착하자마자 간단히 한 그릇 하기 좋음.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">11:00 - 22:00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span>약 800엔 ~ 1,200엔</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📍</span>
+                                <span>JR 교토역 빌딩 10층 (호텔 도보 약 7분)</span>
+                            </div>
+                        </div>
+                        <a href="https://ko.skyticket.com/guide/21201" class="source-link" target="_blank">교토역 라멘 코지 소개 보기 ↗</a>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">카츠쿠라 교토역점</h3>
+                        <span class="option-type">정식 돈카츠</span>
+                        <p class="option-description">
+                            식물성 기름으로 튀겨 기름기가 덜한 교토 스타일 돈카츠. 양배추와 밥은 리필 가능한 곳이 많아서
+                            든든한 첫 끼로 좋음.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">11:00 - 22:00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span>약 1,180엔 ~ 1,980엔</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📍</span>
+                                <span>교토역 인근 상가 (호텔 도보 약 10분)</span>
+                            </div>
+                        </div>
+                        <a href="https://osaka-info.kr/TASTE/?bmode=view&idx=1883904" class="source-link" target="_blank">카츠쿠라 정보 보기 ↗</a>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 3</div>
+                        <h3 class="option-title">교토 이세탄 지하 푸드코트</h3>
+                        <span class="option-type">백화점 델리</span>
+                        <p class="option-description">
+                            스시, 도시락, 덮밥, 튀김 등 먹고 싶은 걸 골라담을 수 있는 델리 존.
+                            기차 안에서 먹을 도시락까지 미리 사두기에도 좋다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">10:00 - 20:00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span>약 1,000엔 ~ 3,000엔</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📍</span>
+                                <span>JR 교토역 직결 백화점 지하</span>
+                            </div>
+                        </div>
+                        <a href="https://ko.skyticket.com/guide/21201" class="source-link" target="_blank">교토역 푸드코트 참고 페이지 ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오후: 아라시야마 & 소우소우 거리 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">🌤️</span>
+                    <h2 class="time-title">오후 13:00 - 18:00 · 아라시야마 하이라이트</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'afternoon')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">추천 코스</div>
+                        <h3 class="option-title">아라시야마 죽림길 & 토게츠교 & 상점가</h3>
+                        <span class="option-type">자연 + 산책</span>
+                        <p class="option-description">
+                            JR 사가아라시야마역으로 이동해 <b>죽림의 길</b> 산책 후, <b>토게츠교</b>와 강가를 따라 걷는 코스.
+                            주변 상점가에서 교토 디저트와 간단한 간식도 함께 즐기기.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">죽림길 24시간 · 무료</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🚇</span>
+                                <span>교토역 → JR 사가아라시야마역 (약 20분)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📸</span>
+                                <span>죽림 포토 스팟 + 토게츠교 전경</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'afternoon')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">아라시야마 + 시내 SOU・SOU & 니시키 시장</h3>
+                        <span class="option-type">자연 + 쇼핑</span>
+                        <p class="option-description">
+                            아라시야마 죽림길과 상점가를 먼저 돌고, 늦은 오후에는 시조·카와라마치 쪽으로 이동해
+                            <b>SOU・SOU 거리</b>와 <b>니시키 시장</b>을 가볍게 둘러보는 동선.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🛍️</span>
+                                <span>SOU・SOU 개성 있는 패턴 소품 & 의류 쇼핑</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🍢</span>
+                                <span>니시키 시장 길거리 음식 & 기념품</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span>SOU・SOU/니시키 대부분 11:00 ~ 20:00 전후</span>
+                            </div>
+                        </div>
+                        <a href="https://www.gltjp.com/en/directory/item/12170/" class="source-link" target="_blank">SOU・SOU 매장 정보 보기 ↗</a>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'afternoon')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 3</div>
+                        <h3 class="option-title">니시키 시장 집중 탐방</h3>
+                        <span class="option-type">시장 구경</span>
+                        <p class="option-description">
+                            교토의 부엌이라 불리는 니시키 시장을 여유 있게 돌아보는 코스.
+                            어묵, 꼬치, 말차 디저트, 집에 가져갈 반찬류까지 한 번에 구경하기.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">대부분 10:00 - 18:00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🚌</span>
+                                <span>교토역 → 버스 약 15분 (시조·카와라마치 방향)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎁</span>
+                                <span>간식 + 기념품 쇼핑</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onsen-box">
+                    <div class="onsen-emoji">♨️</div>
+                    <div class="onsen-text">
+                        <strong>오늘의 마무리는 호텔 대욕장!</strong><br />
+                        아라시야마와 시내 구경으로 지친 다리는, 숙소 1층 대욕장에서 따뜻하게 풀어주고 내일을 준비하기 💕
+                    </div>
+                </div>
+            </div>
+
+            <!-- 저녁: 오코노미야키 & 교토 밤 분위기 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">🌆</span>
+                    <h2 class="time-title">저녁 18:00 - 21:00</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'evening')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">추천</div>
+                        <h3 class="option-title">동그리 시조 가라스마 (오코노미야키)</h3>
+                        <span class="option-type">오코노미야키 · 철판야키</span>
+                        <p class="option-description">
+                            교토 재료로 만든 부드러운 반죽의 오코노미야키와 철판요리를 즐길 수 있는 인기 가게.
+                            자릿수 한정이라 저녁 피크 전에 가면 좋다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span>약 2,000엔 ~ 3,000엔 (1인)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🚇</span>
+                                <span>시조역 인근 (교토역에서 지하철/버스 이동)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🥢</span>
+                                <span>오코노미야키 + 야키소바 + 맥주 한 잔 콤보</span>
+                            </div>
+                        </div>
+                        <a href="https://autoreserve.com/en/jp/kyoto/kyoto-shi/okonomiyaki-monjayaki" class="source-link" target="_blank">동그리 소개 페이지 참고 ↗</a>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'evening')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">폰토초 이자카야 거리</h3>
+                        <span class="option-type">강변 골목</span>
+                        <p class="option-description">
+                            가모가와 강변을 따라 난 좁은 골목에 이자카야와 작은 가게들이 줄지어 있는 폰토초.
+                            조명이 켜진 저녁 분위기를 느끼기에 딱 좋다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">대부분 17:00 - 23:00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span>약 3,000엔 ~ 6,000엔 (1인)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🚌</span>
+                                <span>교토역 → 버스 약 15분</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'evening')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 3</div>
+                        <h3 class="option-title">교토역 주변 식당가</h3>
+                        <span class="option-type">가볍게 한 끼</span>
+                        <p class="option-description">
+                            하루 이동이 길었다면 멀리 나가지 않고 교토역/호텔 근처에서 간단히 저녁 해결하기.
+                            카레, 정식, 우동 등 선택지가 다양하다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">대부분 11:00 - 22:00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🚶</span>
+                                <span>호텔 도보 약 5~10분</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onsen-box">
+                    <div class="onsen-emoji">🛁</div>
+                    <div class="onsen-text">
+                        <strong>저녁 식사 후 루틴</strong><br />
+                        방으로 돌아와 잠깐 수다 떨고, <b>“오늘의 클로징 러닝메이트”</b>인 대욕장에서 따뜻하게 몸을 데우고 푹 자기!
+                    </div>
+                </div>
+            </div>
+
+            <!-- 밤: 선택 사항 (가볍게) -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">🌙</span>
+                    <h2 class="time-title">밤 21:00~ (선택)</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'night')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 1</div>
+                        <h3 class="option-title">기온 & 야사카탑 야경 산책</h3>
+                        <span class="option-type">야경 산책</span>
+                        <p class="option-description">
+                            조명이 켜진 야사카탑과 골목길을 가볍게 산책하며 사진 남기기.
+                            너무 피곤하다면 다음 날로 미뤄도 된다 :)
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span class="price-badge">외부 산책은 무료</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🚌</span>
+                                <span>교토역 → 버스 약 20분</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day1', 'night')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">숙소에서 푹 쉬기</h3>
+                        <span class="option-type">완전 휴식</span>
+                        <p class="option-description">
+                            첫날은 무리하지 않고, 일찍 샤워하고 침대에서 수다 떨며 내일 코스를 다시 점검하는 코지한 플랜.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💤</span>
+                                <span>일찍 자두면 다음 날 에너지 +10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onsen-box">
+                    <div class="onsen-emoji">♨️</div>
+                    <div class="onsen-text">
+                        <strong>오늘의 마지막 체크포인트</strong><br />
+                        “대욕장 다녀왔나?”<br />
+                        ✔️ 다녀왔다면: 내일 다리 근육도 한결 가벼운 삼자매 러블리 투어 스타트 가능 💗
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 Content -->
+        <div id="day2" class="tab-content">
+            <!-- 새벽 러닝 & 아침 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">🌅</span>
+                    <h2 class="time-title">새벽 러닝 & 오전 (가모가와 강)</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">러닝 플랜</div>
+                        <h3 class="option-title">가모가와 강변 새벽 러닝</h3>
+                        <span class="option-type">러닝 코스</span>
+                        <p class="option-description">
+                            새벽 공기를 느끼며 <b>가모가와 강변</b>을 달리는 러닝 코스.
+                            강 옆 평탄한 산책로를 따라 2.5km, 4.3km, 9km 정도 코스를 자유롭게 선택할 수 있다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">해 뜨기 전 ~ 오전</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🏃‍♀️</span>
+                                <span>가모오하시 ~ 마루타마치 구간 등 러닝 코스 다양</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🌳</span>
+                                <span>강변 잔디와 나무, 다리들을 보며 달리는 교토 러닝 성지</span>
+                            </div>
+                        </div>
+                        <a href="https://kyoto.travel/en/destinations/running-coursekamogawa-river/" class="source-link" target="_blank">가모가와 러닝 코스 참고 ↗</a>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">호텔 조식 & 여유로운 시작</h3>
+                        <span class="option-type">느긋한 오전</span>
+                        <p class="option-description">
+                            러닝 후 샤워하고 호텔 조식을 천천히 즐기거나, 러닝 대신 아침을 챙겨 먹으며
+                            하루를 여유롭게 시작하는 플랜.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">07:00 - 09:30 (대부분 호텔 조식 시간)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span>호텔 조식(유료) 또는 근처 카페</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 3</div>
+                        <h3 class="option-title">근처 카페에서 모닝 커피</h3>
+                        <span class="option-type">카페 타임</span>
+                        <p class="option-description">
+                            호텔 주변 카페에서 따뜻한 커피와 간단한 빵으로 가벼운 아침을 해결하고,
+                            오후 일정에 맞춰 천천히 나갈 준비를 한다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">☕</span>
+                                <span>작은 로컬 카페 탐방하기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onsen-box">
+                    <div class="onsen-emoji">🧖‍♀️</div>
+                    <div class="onsen-text">
+                        <strong>러닝 후 리추얼</strong><br />
+                        가볍게 달리고 나서 대욕장에 한 번 더 들어가도 완전 힐링 코스.
+                        교토의 아침 공기 + 따뜻한 욕탕 조합은 이미 반쯤 스파 여행…✨
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오후 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">🌤️</span>
+                    <h2 class="time-title">오후 13:00 - 18:00</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'afternoon')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 1</div>
+                        <h3 class="option-title">기온 & 야사카 신사 산책</h3>
+                        <span class="option-type">전통 거리</span>
+                        <p class="option-description">
+                            기온 골목과 야사카 신사, 하나미코지까지 이어지는 전통 거리 산책.
+                            운 좋으면 기모노 차림의 마이코와 게이샤도 스쳐 지나갈 수 있다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span class="price-badge">산책은 무료</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🚌</span>
+                                <span>교토역 → 버스 약 20분</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'afternoon')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">시내 쇼핑 (테라마치 · 신쿄고쿠)</h3>
+                        <span class="option-type">쇼핑</span>
+                        <p class="option-description">
+                            아케이드 상점가인 테라마치, 신쿄고쿠 거리를 걸으며 패션, 잡화, 기념품을 쇼핑하고
+                            중간중간 카페에 들러 쉬어가기.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">대부분 11:00 - 20:00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🛍️</span>
+                                <span>옷, 소품, 기념품 등 다양</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'afternoon')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 3</div>
+                        <h3 class="option-title">니시키 시장 & 카페</h3>
+                        <span class="option-type">시장 + 카페</span>
+                        <p class="option-description">
+                            전날 못 먹은 메뉴를 찾아 다시 니시키 시장으로! 시장 구경 후,
+                            근처 카페에서 디저트와 함께 잠깐 쉬어가는 플랜.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🍰</span>
+                                <span>말차 파르페, 치즈케이크 등 디저트</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onsen-box">
+                    <div class="onsen-emoji">🛁</div>
+                    <div class="onsen-text">
+                        <strong>쇼핑 후 힐링 타임</strong><br />
+                        하루 종일 걸어 다녔으니, 돌아와서 가장 먼저 할 일은?  
+                        → 발까지 푹 담그는 대욕장 + 수분 보충 + 수다 타임 🫧
+                    </div>
+                </div>
+            </div>
+
+            <!-- 저녁 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">🌆</span>
+                    <h2 class="time-title">저녁 18:00 - 21:00</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'evening')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">오코노미야키</div>
+                        <h3 class="option-title">오코노미야키집 2차 도전</h3>
+                        <span class="option-type">오코노미야키</span>
+                        <p class="option-description">
+                            전날과 다른 메뉴를 먹어보고 싶다면, 시조·카와라마치 인근의 다른 오코노미야키 가게로!
+                            치즈 토핑, 모던야키 등 각자 취향대로 골라보기.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💴</span>
+                                <span>약 1,500엔 ~ 3,000엔</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🥂</span>
+                                <span>맥주나 하이볼과 함께 가볍게 한 잔</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'evening')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">카츠쿠라 저녁 정식</h3>
+                        <span class="option-type">든든한 정식</span>
+                        <p class="option-description">
+                            하루를 알차게 보냈다면, 저녁에는 다시 카츠쿠라에서 정식 한 상으로 마무리하기.
+                            샐러드와 밥까지 푸짐하게 먹고 돌아오기 좋다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🍚</span>
+                                <span>돈카츠 정식 + 양배추 & 밥 리필</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'evening')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 3</div>
+                        <h3 class="option-title">폰토초 야경 + 가벼운 술</h3>
+                        <span class="option-type">분위기 위주</span>
+                        <p class="option-description">
+                            이미 한 번 다녀왔더라도, 밤에는 또 다른 분위기의 폰토초.
+                            강변 야경을 보며 가벼운 안주와 술 한 잔으로 둘째 날을 정리하기.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🌉</span>
+                                <span>가모가와 야경 + 골목길 조명</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onsen-box">
+                    <div class="onsen-emoji">♨️</div>
+                    <div class="onsen-text">
+                        <strong>혜다설 온천 루틴 Day 2</strong><br />
+                        대욕장에서 삼자매 수다를 이어가도 좋고,  
+                        각자 이어폰 끼고 조용히 물에 떠 있다가 나와도 좋은 시간. 오늘의 하이라이트 공유 타임!
+                    </div>
+                </div>
+            </div>
+
+            <!-- 밤 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">🌙</span>
+                    <h2 class="time-title">밤 21:00~</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'night')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 1</div>
+                        <h3 class="option-title">기온 야경 리마인드</h3>
+                        <span class="option-type">짧은 산책</span>
+                        <p class="option-description">
+                            아직 체력이 남았다면, 기온 골목을 다시 한 번만 더 둘러보고 돌아오는 짧은 산책.
+                        </p>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day2', 'night')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">호텔에서 조용히 마무리</h3>
+                        <span class="option-type">휴식</span>
+                        <p class="option-description">
+                            내일 귀가를 생각하며 짐을 살짝 정리하고, 침대에서 영상 보며 쉬는 플랜.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="onsen-box">
+                    <div class="onsen-emoji">🛁</div>
+                    <div class="onsen-text">
+                        <strong>마지막 밤의 대욕장 체크</strong><br />
+                        “이 호텔의 대욕장, 오늘이 사실상 마지막 밤…”  
+                        이 생각이 들 때 들어가는 온탕이 제일 행복한 법 😌
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 Content -->
+        <div id="day3" class="tab-content">
+            <div class="info-box">
+                <strong>📌 오후 15:30경 오사카로 복귀 예정</strong><br />
+                아침에는 가볍게 한 코스만 계획하고, 점심 후 교토역으로 이동해 JR/한큐선으로 오사카 복귀.
+            </div>
+
+            <!-- 오전 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">☀️</span>
+                    <h2 class="time-title">오전 (체크아웃 후)</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day3', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 1</div>
+                        <h3 class="option-title">니시키 시장 브런치</h3>
+                        <span class="option-type">먹거리</span>
+                        <p class="option-description">
+                            아직 못 먹은 길거리 음식이 있다면, 니시키 시장 브런치로 깔끔하게 마무리!
+                            타코야키, 계란말이, 어묵 등 조금씩 여러 가지 맛보기 좋다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">10:00 - 18:00 (점포별 상이)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🚌</span>
+                                <span>버스 약 15분</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day3', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">호텔 근처 산책 & 교토 타워</h3>
+                        <span class="option-type">여유</span>
+                        <p class="option-description">
+                            체크아웃 후 짐을 호텔에 맡겨두고, 교토 타워 주변을 천천히 산책하며
+                            마지막으로 교토의 거리 분위기를 눈에 담는 코스.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🚶</span>
+                                <span>호텔 주변 가벼운 산책</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day3', 'morning')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 3</div>
+                        <h3 class="option-title">인증샷 마무리 스팟 들르기</h3>
+                        <span class="option-type">인증샷</span>
+                        <p class="option-description">
+                            아직 못 간 포토 스팟이 있다면, 이동 시간 안에서 빠르게 들렀다가 오기.
+                            (야사카 탑, 가모가와, 시조 교차로 등)
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">📸</span>
+                                <span>각자 “이번 여행 베스트 샷” 남기기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onsen-box">
+                    <div class="onsen-emoji">🧼</div>
+                    <div class="onsen-text">
+                        <strong>마지막 아침 온천 체크</strong><br />
+                        시간 여유가 된다면 체크아웃 전 가볍게 대욕장에 한 번 더 들어가도 좋다.  
+                        “서울 도착 후에는 이렇게 여유롭게 못 씻는다…”는 마음으로!
+                    </div>
+                </div>
+            </div>
+
+            <!-- 점심 & 귀가 -->
+            <div class="time-section">
+                <div class="time-header">
+                    <span class="time-icon">🍽️</span>
+                    <h2 class="time-title">점심 & 귀가 (12:00 - 15:30)</h2>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption(this, 'day3', 'lunch')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 1</div>
+                        <h3 class="option-title">교토역 라멘 코지에서 마지막 한 그릇</h3>
+                        <span class="option-type">간편</span>
+                        <p class="option-description">
+                            귀가 전 교토역 라멘 코지에서 마지막으로 일본식 라멘 한 그릇.
+                            기차 타기 직전까지 든든하게 채우기 좋다.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="hours-badge">11:00 - 22:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day3', 'lunch')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 2</div>
+                        <h3 class="option-title">카츠쿠라 점심 정식</h3>
+                        <span class="option-type">정식</span>
+                        <p class="option-description">
+                            마지막 식사는 제대로 챙기고 싶은 날. 돈카츠 정식으로 든든하게 마무리하고 오사카로 이동.
+                        </p>
+                    </div>
+
+                    <div class="option-card" onclick="selectOption(this, 'day3', 'lunch')">
+                        <span class="check-icon">✓</span>
+                        <div class="option-badge">옵션 3</div>
+                        <h3 class="option-title">이세탄 도시락 사서 기차에서 먹기</h3>
+                        <span class="option-type">간편 도시락</span>
+                        <p class="option-description">
+                            교토역 이세탄에서 에키벤(역 도시락)을 골라 기차 안에서 천천히 먹는 플랜.
+                            삼자매 도시락 리뷰 타임으로도 활용 가능.
+                        </p>
+                        <div class="option-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🚄</span>
+                                <span>열차 안에서 여유 있게 식사</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 18px;">
+                    <strong>🎒 체크리스트</strong>
+                    <ul style="margin-top: 8px; padding-left: 18px; line-height: 1.9; font-size: 0.9rem;">
+                        <li>숙소 체크아웃 & 짐 보관 확인</li>
+                        <li>기념품/쇼핑 백 다시 한 번 점검</li>
+                        <li>교토역 이동 시간 여유 있게 잡기 (약 15:30 이전 도착)</li>
+                        <li>JR 또는 한큐선으로 오사카 복귀</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Page -->
+        <div id="summary-page" class="tab-content">
+            <div class="summary-section">
+                <h2 class="summary-title-main">나의 교토 여행 일정표</h2>
+                <div id="summary-content">
+                    <div class="empty-message">
+                        아직 선택한 일정이 없습니다.<br />
+                        각 날짜 페이지에서 원하는 옵션을 클릭해 주세요!
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 14px;">
+                    <button class="print-button" onclick="window.print()">일정표 인쇄하기 📄</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store selections
+        let selections = {
+            day1: { morning: null, afternoon: null, evening: null, night: null },
+            day2: { morning: null, afternoon: null, evening: null, night: null },
+            day3: { morning: null, lunch: null }
+        };
+
+        function showPage(button, page) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.nav-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected page
+            if (page === 'summary') {
+                document.getElementById('summary-page').classList.add('active');
+                updateSummary();
+            } else {
+                document.getElementById(page).classList.add('active');
+            }
+
+            // Set active button
+            if (button) {
+                button.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectOption(card, day, timeSlot) {
+            const timeSection = card.closest('.time-section');
+            const cards = timeSection.querySelectorAll('.option-card');
+
+            // Remove selected from all cards in this time section
+            cards.forEach(c => c.classList.remove('selected'));
+
+            // Add selected to clicked card
+            card.classList.add('selected');
+
+            // Store selection
+            const title = card.querySelector('.option-title').textContent.trim();
+            const description = card.querySelector('.option-description').textContent.trim();
+
+            selections[day][timeSlot] = { title, description };
+        }
+
+        function updateSummary() {
+            const summaryContent = document.getElementById('summary-content');
+
+            let hasSelections = false;
+            let html = '';
+
+            // Day 1
+            if (Object.values(selections.day1).some(v => v !== null)) {
+                hasSelections = true;
+                html += '<div class="summary-day">';
+                html += '<h3 class="summary-day-title">🌸 Day 1 - 토요일</h3>';
+
+                if (selections.day1.morning) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">☀️ 오전 & 점심</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day1.morning.title}</div>
+                        <div>${selections.day1.morning.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                if (selections.day1.afternoon) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">🌤️ 오후</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day1.afternoon.title}</div>
+                        <div>${selections.day1.afternoon.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                if (selections.day1.evening) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">🌆 저녁</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day1.evening.title}</div>
+                        <div>${selections.day1.evening.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                if (selections.day1.night) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">🌙 밤</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day1.night.title}</div>
+                        <div>${selections.day1.night.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                html += '</div>';
+            }
+
+            // Day 2
+            if (Object.values(selections.day2).some(v => v !== null)) {
+                hasSelections = true;
+                html += '<div class="summary-day">';
+                html += '<h3 class="summary-day-title">🌸 Day 2 - 일요일</h3>';
+
+                if (selections.day2.morning) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">🌅 새벽 & 오전</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day2.morning.title}</div>
+                        <div>${selections.day2.morning.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                if (selections.day2.afternoon) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">🌤️ 오후</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day2.afternoon.title}</div>
+                        <div>${selections.day2.afternoon.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                if (selections.day2.evening) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">🌆 저녁</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day2.evening.title}</div>
+                        <div>${selections.day2.evening.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                if (selections.day2.night) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">🌙 밤</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day2.night.title}</div>
+                        <div>${selections.day2.night.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                html += '</div>';
+            }
+
+            // Day 3
+            if (Object.values(selections.day3).some(v => v !== null)) {
+                hasSelections = true;
+                html += '<div class="summary-day">';
+                html += '<h3 class="summary-day-title">🌸 Day 3 - 월요일</h3>';
+
+                if (selections.day3.morning) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">☀️ 오전</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day3.morning.title}</div>
+                        <div>${selections.day3.morning.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                if (selections.day3.lunch) {
+                    html += '<div class="summary-time">';
+                    html += '<div class="summary-time-label">🍽️ 점심 & 귀가</div>';
+                    html += `<div class="summary-item">
+                        <div class="summary-item-title">${selections.day3.lunch.title}</div>
+                        <div>${selections.day3.lunch.description}</div>
+                    </div>`;
+                    html += '</div>';
+                }
+
+                html += '</div>';
+            }
+
+            if (hasSelections) {
+                summaryContent.innerHTML = html;
+            } else {
+                summaryContent.innerHTML = '<div class="empty-message">아직 선택한 일정이 없습니다.<br>각 날짜 페이지에서 원하는 옵션을 클릭해 주세요!</div>';
+            }
+        }
+    </script>
+</body>
+</html>
